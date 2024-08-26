@@ -1,0 +1,36 @@
+
+<div id="main">
+
+  <h1 id="appTitleName" class="medium">{{ title }}</h1>
+
+  <button id="getData" class="btn btn--primary regular" (click)="getPosts()">get data</button>
+
+  <div id="listOfResults" class="list">
+    <ul *ngIf="posts?.length !== 0">
+      @for (post of posts ; track post.id) {
+        <li>
+        <p>
+          <span class="regular bolder">UserID:</span>
+          <span id="userid-value" class="regular">{{ post.userId }}</span>
+        </p>
+        <p>
+          <span class="regular bolder">ID:</span>
+          <span id="id-value" class="regular">{{ post.id }}</span>
+        </p>
+        <p>
+          <span class="regular bolder">Tilte:</span> <br />
+          <span id="title-value" class="regular">{{ post.title }}</span>
+        </p>
+        <p>
+          <span class="regular bolder">Body:</span> <br />
+          <span  id="body-value" class="regular">{{ post.body }}</span>
+        </p>
+      </li>
+    }
+    </ul>
+    <p class="regular text-center" *ngIf="posts?.length === 0" style="padding: 16px;">Aucunes données récupérées</p>
+  </div>
+
+</div>
+
+<router-outlet />
